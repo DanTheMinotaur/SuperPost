@@ -20,5 +20,6 @@ namespace SuperPost.Models
         public int ID { get; set; }
         public string CommentText { get; set; }
         public DateTime DateAdded { get; set; }
+
     }
 }
