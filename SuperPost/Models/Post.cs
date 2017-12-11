@@ -12,7 +12,7 @@ namespace SuperPost.Models
         public string Image { get; set; }
         public DateTime DateAdded { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 
     public class Comment
