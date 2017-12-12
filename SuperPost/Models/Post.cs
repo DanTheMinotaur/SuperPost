@@ -22,8 +22,6 @@ namespace SuperPost.Models
         public int ID { get; set; }
         public string CommentText { get; set; }
         public DateTime DateAdded { get; set; }
-
-        public int Post_ID { get; set; }
     }
 
     public class Category
