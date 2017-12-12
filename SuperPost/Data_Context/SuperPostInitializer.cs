@@ -31,11 +31,11 @@ namespace SuperPost.Data_Context
 
             var comments = new List<Comment>
             {
-                new Comment{CommentText="This is a great picture", DateAdded=DateTime.Parse("2017-10-14"), Post_ID=1},
-                new Comment{CommentText="This is a great picture", DateAdded=DateTime.Parse("2017-10-14"), Post_ID=1},
-                new Comment{CommentText="First", DateAdded=DateTime.Parse("2017-10-14"), Post_ID=2},
-                new Comment{CommentText="Second", DateAdded=DateTime.Parse("2017-10-14"), Post_ID=2},
-                new Comment{CommentText="Third", DateAdded=DateTime.Parse("2017-10-14"), Post_ID=1}
+                new Comment{CommentText="This is a great picture", DateAdded=DateTime.Parse("2017-10-14")},
+                new Comment{CommentText="This is a great picture", DateAdded=DateTime.Parse("2017-10-14")},
+                new Comment{CommentText="First", DateAdded=DateTime.Parse("2017-10-14")},
+                new Comment{CommentText="Second", DateAdded=DateTime.Parse("2017-10-14")},
+                new Comment{CommentText="Third", DateAdded=DateTime.Parse("2017-10-14")}
             };
 
             comments.ForEach(c => context.Comments.Add(c));
