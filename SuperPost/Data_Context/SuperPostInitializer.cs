@@ -20,10 +20,10 @@ namespace SuperPost.Data_Context
 
             var posts = new List<Post>
             {
-                new Post{Title="A Sunny Day", Image="img1.jpg", DateAdded=DateTime.Parse("2017-10-14")},
-                new Post{Title="A Rainy Day", Image="img2.jpg", DateAdded=DateTime.Parse("2017-10-17")},
-                new Post{Title="A Bad Day", Image="img3.jpg", DateAdded=DateTime.Parse("2017-11-14")},
-                new Post{Title="A Great Day", Image="img4.jpg", DateAdded=DateTime.Parse("2017-11-19")},
+                new Post{Title="A Sunny Day", Image="Images/img1.png", DateAdded=DateTime.Parse("2017-10-14")},
+                new Post{Title="A Rainy Day", Image="Images/img2.png", DateAdded=DateTime.Parse("2017-10-17")},
+                new Post{Title="A Bad Day", Image="Images/img3.jpg", DateAdded=DateTime.Parse("2017-11-14")},
+                new Post{Title="A Great Day", Image="Images/img4.jpg", DateAdded=DateTime.Parse("2017-11-19")},
             };
 
             posts.ForEach(p => context.Posts.Add(p));
