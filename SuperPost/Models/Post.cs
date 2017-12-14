@@ -15,6 +15,12 @@ namespace SuperPost.Models
         public virtual ICollection<Comment> Comments { get; set; }
     }
 
+    public class User
+    {
+        public int ID { get; set; }
+        public string Username { get; set; }
+    }
+
     public class Comment
     {
         public int ID { get; set; }
