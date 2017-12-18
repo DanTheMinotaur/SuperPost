@@ -1,39 +1,43 @@
-﻿@model IEnumerable<SuperPost.Models.Post>
-
+﻿@model IEnumerable<SuperPost.Models.Post> 
 @{
     ViewBag.Title = "Index";
 }
+<main class="container">
+    <h2>All Posts</h2>
 
-<h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <section class="posts">
+        @foreach (var item in Model)
+        {
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PostTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+            <div class="col-md-10">
+                <h2>
+                    @Html.DisplayFor(modelItem => item.PostTitle)
+                </h2>
+                <div class="image">
+                    <img src="~/Content/@Html.DisplayFor(modelItem => item.Image)" class="img-responsive"/>
+                </div>
+                <div class="settings">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    <button class="btn btn-danger"> @Html.ActionLink("Delete", "Delete", new { id = item.ID })</button>
+                </div>
+                <table class="table-striped">
+                    <thead>
+                        <tr><th>Comments</th></tr>
+                    </thead>
+                    @foreach (var comment in item.Comments)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => comment.CommentText)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+    </section>
+</main>
