@@ -14,7 +14,7 @@
 
             <div class="col-md-10">
                 <h2>
-                    @Html.DisplayFor(modelItem => item.PostTitle)
+                    @Html.DisplayFor(modelItem => item.PostTitle) <small>| @Html.DisplayFor(modelItem => item.DateAdded)</small>
                 </h2>
                 <div class="image">
                     <img src="~/Content/@Html.DisplayFor(modelItem => item.Image)" class="img-responsive"/>
