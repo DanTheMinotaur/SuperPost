@@ -12,11 +12,19 @@ namespace SuperPost.DataContext
     {
         protected override void Seed(SPContext context)
         {
+            var categories = new List<Category>
+            {
+                new Category {CategoryName="Space"},
+                new Category {CategoryName="Animals"}
+            };
+            categories.ForEach(c => context.Categories.Add(c));
+            context.SaveChanges();
+
             var posts = new List<Post>
             {
-                new Post {PostTitle="This is an image", Image="images/1.jpg", DateAdded=DateTime.Parse("2017-10-14")},
-                new Post {PostTitle="Spaaaccceeeee", Image="images/2.jpg", DateAdded=DateTime.Parse("2017-10-14")},
-                new Post {PostTitle="Another Space", Image="images/3.jpg", DateAdded=DateTime.Parse("2017-10-14")}
+                new Post {PostTitle="This is an image", Image="images/1.jpg", DateAdded=DateTime.Parse("2017-10-14"), CategoryID=1},
+                new Post {PostTitle="Spaaaccceeeee", Image="images/2.jpg", DateAdded=DateTime.Parse("2017-10-14"), CategoryID=1},
+                new Post {PostTitle="Another Space", Image="images/3.jpg", DateAdded=DateTime.Parse("2017-10-14"), CategoryID=1}
             };
 
             posts.ForEach(p => context.Posts.Add(p));

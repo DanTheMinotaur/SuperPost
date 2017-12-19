@@ -12,8 +12,10 @@ namespace SuperPost.DataContext
     {
         public SPContext() : base("SPContext") {}
 
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
