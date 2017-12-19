@@ -10,7 +10,7 @@ namespace SuperPost.Models
         public int ID { get; set; }
         public string PostTitle { get; set; }
         public string Image { get; set; }
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
         // Hold References to Comment e.g. Navigation Property
         public virtual ICollection<Comment> Comments { get; set; }

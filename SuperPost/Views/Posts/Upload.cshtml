@@ -1,18 +1,17 @@
 ﻿@model SuperPost.Models.Post
 
 @{
-    ViewBag.Title = "Create Post";
+    ViewBag.Title = "Create";
 }
 
-<h2>Create Post</h2>
+<h2>Create</h2>
 
 <div class="form-group">
     @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Create", "PostsController", FormMethod.Post, new { @enctype = "multipart/form-data" }))
         {
-            @Html.AntiForgeryToken()
-            <input type="text" name="title" />
+           
             <label for="uploadedImage">Upload Image:</label>
             <input type="file" name="uploadedImage" id="uploadedImage" required/>
             <input type="submit" value="Upload Image" />

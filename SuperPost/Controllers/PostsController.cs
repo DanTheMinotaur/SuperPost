@@ -47,16 +47,42 @@ namespace SuperPost.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,PostTitle,Image")] Post post)
+        public ActionResult Create(HttpPostedFileBase uploadedImage, string title)
         {
-            if (ModelState.IsValid)
+            if(uploadedImage != null && uploadedImage.ContentLength > 0)
             {
-                db.Posts.Add(post);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                Post post = new Post();
+                
+                string imagePath = "images/" + System.IO.Path.GetFileName(uploadedImage.FileName);
 
-            return View(post);
+                uploadedImage.SaveAs(System.IO.Path.Combine(Server.MapPath("~/Content/"), imagePath));
+                
+                post.PostTitle = title;
+                post.Image = imagePath;
+                post.DateAdded = DateTime.Now;
+
+                db.Posts.Add(post);
+
+                db.SaveChanges();
+
+                return View(post);
+            } else
+            {
+                return View();
+            }
+            /*
+            Post post = new Post();
+
+            string imagePath = "images/" + System.IO.Path.GetFileName(uploadedImage.FileName);
+
+            uploadedImage.SaveAs(System.IO.Path.Combine(Server.MapPath("~/Content/"), imagePath));
+            post.Image = imagePath;
+            post.DateAdded = DateTime.Now;
+            db.Posts.Add(post);
+            db.SaveChanges();
+            */
+
+            
         }
 
         // GET: Posts/Edit/5
@@ -83,6 +109,7 @@ namespace SuperPost.Controllers
         {
             if (ModelState.IsValid)
             {
+                post.DateAdded = DateTime.Now;
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
