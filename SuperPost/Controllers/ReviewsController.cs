@@ -80,6 +80,8 @@ namespace SuperPost.Controllers
                 return BadRequest(ModelState);
             }
 
+            reviews.DateTime = DateTime.Now;
+
             db.Reviews.Add(reviews);
             db.SaveChanges();
 
