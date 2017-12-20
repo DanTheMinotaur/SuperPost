@@ -43,6 +43,16 @@ namespace SuperPost.DataContext
             comments.ForEach(c => context.Comments.Add(c));
             context.SaveChanges();
 
+            var sitecomments = new List<Reviews>
+            {
+                new Reviews {Name="Dan", Comment="What a great site!", DateTime=DateTime.Parse("2017-12-23")},
+                new Reviews {Name="Jane",Comment="Seriously A+ Stuff", DateTime=DateTime.Parse("2017-12-23")},
+                new Reviews {Name="Sean",Comment="No flaws with this, if this were a college project I could not fault it", DateTime=DateTime.Parse("2017-12-23")},
+            };
+            sitecomments.ForEach(sc => context.Reviews.Add(sc));
+            context.SaveChanges();
+
+
         }
     }
 }

@@ -21,7 +21,7 @@ namespace SuperPost.Controllers
             return View(db.Posts.ToList());
         }
 
-        // GET: Posts/Details/5
+        // GET: Posts/Details/5`.=oi98
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -70,18 +70,6 @@ namespace SuperPost.Controllers
             {
                 return View();
             }
-            /*
-            Post post = new Post();
-
-            string imagePath = "images/" + System.IO.Path.GetFileName(uploadedImage.FileName);
-
-            uploadedImage.SaveAs(System.IO.Path.Combine(Server.MapPath("~/Content/"), imagePath));
-            post.Image = imagePath;
-            post.DateAdded = DateTime.Now;
-            db.Posts.Add(post);
-            db.SaveChanges();
-            */
-
             
         }
 
