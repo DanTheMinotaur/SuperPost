@@ -29,6 +29,14 @@
             </div>
         </div>
     </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SuperPost</p>
+        </footer>
+    </div>
     <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -57,7 +65,7 @@
                     <form method="post" action="/api/Reviews" id="addReview">
                         <div class="form-group">
                             <label for="Name">Name</label>
-                            <input type="text" name="Name" id="Name" required/>
+                            <input type="text" name="Name" id="Name" required />
                         </div>
                         <div class="form-group">
                             <label for="Comment">Review</label>
@@ -74,17 +82,10 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - SuperPost</p>
-        </footer>
-    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    
+    <script src="~/Scripts/main.js"></script>
 </body>
 </html>
