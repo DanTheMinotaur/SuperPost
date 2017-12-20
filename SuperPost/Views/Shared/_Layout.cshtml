@@ -6,7 +6,6 @@
     <title>@ViewBag.Title - SuperPost</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -29,14 +28,6 @@
             </div>
         </div>
     </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - SuperPost</p>
-        </footer>
-    </div>
     <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -54,6 +45,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="form">
             <div class="modal-content">
@@ -65,14 +57,14 @@
                     <form method="post" action="/api/Reviews" id="addReview">
                         <div class="form-group">
                             <label for="Name">Name</label>
-                            <input type="text" name="Name" id="Name" required />
+                            <input type="text" class="form-control" name="Name" id="Name" required />
                         </div>
                         <div class="form-group">
                             <label for="Comment">Review</label>
-                            <textarea name="Comment" id="Comment" required />
+                            <input name="Comment" class="form-control" id="Comment" required />
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-success" />
+                            <button type="submit" id="submitComment" class="btn btn-success">Send Review</button>
                         </div>
                     </form>
                 </div>
@@ -82,6 +74,16 @@
             </div>
         </div>
     </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SuperPost</p>
+        </footer>
+    </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
