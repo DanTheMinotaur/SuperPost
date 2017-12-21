@@ -94,6 +94,7 @@ namespace SuperPost.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "ID,PostTitle,Image,CategoryID")] Post post)
         {
             if (ModelState.IsValid)
@@ -107,6 +108,7 @@ namespace SuperPost.Controllers
         }
 
         // GET: Posts/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -124,6 +126,7 @@ namespace SuperPost.Controllers
         // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = db.Posts.Find(id);

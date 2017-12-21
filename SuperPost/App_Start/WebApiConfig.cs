@@ -16,6 +16,7 @@ namespace SuperPost
             config.MapHttpAttributeRoutes();
 
             // Sets Default API data to JSON
+            
             config.Formatters.JsonFormatter.SupportedMediaTypes
             .Add(new MediaTypeHeaderValue("text/html"));
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings
