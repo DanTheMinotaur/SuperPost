@@ -39,4 +39,8 @@ $(function () {
         event.preventDefault();
         addReview();
     });
+
+    $('#submitComment').click(function (event) {
+        loadReviews();
+    });
 });

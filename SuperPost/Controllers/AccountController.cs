@@ -393,7 +393,7 @@ namespace SuperPost.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Posts");
         }
 
         //
@@ -450,7 +450,7 @@ namespace SuperPost.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Posts");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
