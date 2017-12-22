@@ -3,11 +3,13 @@
     ViewBag.Title = "Home";
 }
 <main class="container">
-    <h2>All Posts</h2>
+    <div class="jumbotron">
+        <h1>Welcome to SuperPost</h1>
+        <p>The best place to post your images! Ever Ever!</p>
+        @Html.ActionLink("Create A Post", "Create", "Posts", new { @class = "btn btn-success" })
+    </div>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+        
     <section class="posts">
         @foreach (var item in Model)
         {
@@ -21,11 +23,11 @@
                     <img src="~/Content/@Html.DisplayFor(modelItem => item.Image)" class="img-responsive"/>
                 </div>
                 <div class="settings">
-                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+                    @Html.ActionLink("View Image", "Details", "Posts", new { id = item.ID }, new { @class = "btn btn-info"})
                     @if(User.Identity.IsAuthenticated)
                     {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                        <button class="btn btn-danger"> @Html.ActionLink("Delete", "Delete", new { id = item.ID })</button>
+                        @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, new { @class = "btn btn-danger" })
                     }
                     
                     
