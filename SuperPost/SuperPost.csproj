@@ -218,6 +218,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Categories1Controller.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
