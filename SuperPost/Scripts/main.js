@@ -55,7 +55,7 @@ $(function () {
         addReview();
     });
 
-    $('#addCategory').click(function () {
+    $('#addCategory').click(function (event) {
         event.preventDefault();
         loadCategories();
         //console.log('Clicked');

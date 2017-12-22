@@ -14,7 +14,7 @@
         @foreach (var item in Model)
         {
 
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <h2>
                     @Html.DisplayFor(modelItem => item.PostTitle) <small>| @Html.DisplayFor(modelItem => item.Category.CategoryName)</small>
                 </h2>
@@ -22,7 +22,7 @@
                 <div class="image">
                     <img src="~/Content/@Html.DisplayFor(modelItem => item.Image)" class="img-responsive"/>
                 </div>
-                <div class="settings">
+                <div class="settings btn-group">
                     @Html.ActionLink("View Image", "Details", "Posts", new { id = item.ID }, new { @class = "btn btn-info"})
                     @if(User.Identity.IsAuthenticated)
                     {
@@ -32,7 +32,7 @@
                     
                     
                 </div>
-                <table class="table-striped">
+                <table class="table table-striped">
                     <thead>
                         <tr><th>Comments</th></tr>
                     </thead>
