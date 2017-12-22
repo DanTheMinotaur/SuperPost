@@ -56,6 +56,7 @@ $(function () {
     });
 
     $('#addCategory').click(function () {
+        event.preventDefault();
         loadCategories();
         //console.log('Clicked');
     });
