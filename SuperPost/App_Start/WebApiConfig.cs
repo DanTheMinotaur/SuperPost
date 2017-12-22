@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -25,6 +26,9 @@ namespace SuperPost
             StringComparison.InvariantCultureIgnoreCase,
             true,
             "application/json"));
+            GlobalConfiguration.Configuration.Formatters
+                   .JsonFormatter.SerializerSettings.Re‌​ferenceLoopHandling
+                   = ReferenceLoopHandling.Ignore;
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

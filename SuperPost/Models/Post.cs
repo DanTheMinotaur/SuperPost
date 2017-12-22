@@ -5,6 +5,12 @@ using System.Web;
 
 namespace SuperPost.Models
 {
+    public class PostCategory
+    {
+        public Post Posts { get; set; }
+        public Category Categories { get; set; }
+    }
+
     public class Post
     {
         public int ID { get; set; }
@@ -17,5 +23,6 @@ namespace SuperPost.Models
 
         // Hold References to Comment e.g. Navigation Property
         public virtual ICollection<Comment> Comments { get; set; }
+        
     }
 }

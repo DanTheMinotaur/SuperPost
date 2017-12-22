@@ -216,6 +216,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\bootstrap-united.css" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Categories1Controller.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
