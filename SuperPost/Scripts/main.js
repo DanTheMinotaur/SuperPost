@@ -75,7 +75,8 @@ $(function () {
     $('#addComment').submit(function (event) {
         event.preventDefault();
         addComment();
-        $('#addCommentModal').modal('hide')
+        $('#addCommentModal').modal('hide');
+        //location.reload();
     });
 
 });
