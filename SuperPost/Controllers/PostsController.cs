@@ -47,7 +47,7 @@ namespace SuperPost.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(HttpPostedFileBase uploadedImage, string title)
+        public ActionResult Create(HttpPostedFileBase uploadedImage, string title, int category)
         {
             if(uploadedImage != null && uploadedImage.ContentLength > 0)
             {
@@ -59,6 +59,13 @@ namespace SuperPost.Controllers
                 
                 post.PostTitle = title;
                 post.Image = imagePath;
+                if(category.Equals(null))
+                {
+                    post.CategoryID = null;
+                } else
+                {
+                    post.CategoryID = category;
+                }
                 post.DateAdded = DateTime.Now;
 
                 db.Posts.Add(post);

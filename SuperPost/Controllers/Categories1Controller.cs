@@ -20,7 +20,12 @@ namespace SuperPost.Controllers
         // GET: api/Categories1
         public IQueryable<Category> GetCategories()
         {
-            return db.Categories;
+            return db.Categories.ToList().Select(
+                c => new Category
+                {
+                    ID = c.ID,
+                    CategoryName = c.CategoryName
+                }).AsQueryable();
         }
 
         // GET: api/Categories1/5

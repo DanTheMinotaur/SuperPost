@@ -1,6 +1,6 @@
 ﻿
 function loadReviews() {
-    $.getJSON("api/Reviews", function (data) {
+    $.getJSON("/api/Reviews", function (data) {
 
         var table = '<table class="table table-hover"><thead><tr><th>Name</th><th>Comment</th><th>Date Posted</th></tr></thead><tbody>';
         
@@ -27,6 +27,21 @@ function addReview() {
         });
 }
 
+function loadCategories() {
+    console.log("loadCategories() started");
+    $.getJSON("/api/Categories1", function (data) {
+        var select = '<select class="form-control" name="category">';
+        $.each(data, function (key, value) {
+            console.log(key);
+            console.log(value);
+            select += '<option value="' + value.ID + '">' + value.CategoryName + '</option>';
+        });
+        select += '</select>';
+        console.log(select);
+        $('#categorySelection').html(select);
+    });
+}
+
 $(function () {
     console.log("ready!");
     $('#reviewTrigger').click(function () {
@@ -38,6 +53,11 @@ $(function () {
     $('#addReview').submit(function (event) {
         event.preventDefault();
         addReview();
+    });
+
+    $('#addCategory').click(function () {
+        loadCategories();
+        //console.log('Clicked');
     });
 
     $('#submitComment').click(function (event) {
