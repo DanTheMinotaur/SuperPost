@@ -18,14 +18,16 @@
             <h2>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </h2>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <div class="settings">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
-                </div>
-            }
+            <div class="settings btn-group">
+                @Html.ActionLink("All " + @Html.DisplayFor(modelItem => item.CategoryName) + " Posts", "Details", new { id = item.ID }, new { @class = "btn btn-info" })
+                @if (User.Identity.IsAuthenticated)
+                { 
+                    @Html.ActionLink("Edit Category", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+
+                    @Html.ActionLink("Delete Category", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+
+                }
+            </div>
             <div class="">
                 @foreach (var imagePost in item.Posts.Take(3))
                 {
