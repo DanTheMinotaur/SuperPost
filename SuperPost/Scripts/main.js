@@ -27,6 +27,13 @@ function addReview() {
         });
 }
 
+function addComment() {
+    $.post('/api/Comments', $('#addComment').serialize())
+        .done(function (data) {
+            console.log('Comment Added!');
+        });
+}
+
 function loadCategories() {
     console.log("loadCategories() started");
     $.getJSON("/api/Categories1", function (data) {
@@ -55,13 +62,20 @@ $(function () {
         addReview();
     });
 
+    $('#closeAddReview').click(function (event) {
+        loadReviews();
+    });
+
     $('#addCategory').click(function (event) {
         event.preventDefault();
         loadCategories();
         //console.log('Clicked');
     });
 
-    $('#submitComment').click(function (event) {
-        loadReviews();
+    $('#addComment').submit(function (event) {
+        event.preventDefault();
+        addComment();
+        $('#addCommentModal').modal('hide')
     });
+
 });
