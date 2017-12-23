@@ -23,53 +23,6 @@ namespace SuperPost.Controllers
             return db.Comments;
         }
 
-        // GET: api/Comments/5
-        [ResponseType(typeof(Comment))]
-        public IHttpActionResult GetComment(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(comment);
-        }
-
-        // PUT: api/Comments/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutComment(int id, Comment comment)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != comment.ID)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(comment).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CommentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
 
         // POST: api/Comments
         [ResponseType(typeof(Comment))]
@@ -85,22 +38,6 @@ namespace SuperPost.Controllers
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = comment.ID }, comment);
-        }
-
-        // DELETE: api/Comments/5
-        [ResponseType(typeof(Comment))]
-        public IHttpActionResult DeleteComment(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return NotFound();
-            }
-
-            db.Comments.Remove(comment);
-            db.SaveChanges();
-
-            return Ok(comment);
         }
 
         protected override void Dispose(bool disposing)
