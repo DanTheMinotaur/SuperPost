@@ -24,10 +24,10 @@
                 </div>
                 <div class="settings btn-group">
                     @Html.ActionLink("View Image", "Details", "Posts", new { id = item.ID }, new { @class = "btn btn-info"})
-                    @if(User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated)
                     {
-                        @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, new { @class = "btn btn-warning" })
-                        @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Edit Post", "Edit",  new { controller = "Posts", id = item.ID }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Delete Post", "Delete", new { controller = "Posts", id = item.ID }, new { @class = "btn btn-danger" })
                     }
                     
                     

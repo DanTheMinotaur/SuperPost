@@ -72,7 +72,7 @@ namespace SuperPost.Controllers
 
                 db.SaveChanges();
 
-                return View(post);
+                return RedirectToAction("Index");
             } else
             {
                 return View();
@@ -140,6 +140,7 @@ namespace SuperPost.Controllers
             db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");
+            
         }
 
         protected override void Dispose(bool disposing)

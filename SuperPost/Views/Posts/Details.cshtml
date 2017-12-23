@@ -19,8 +19,8 @@
                 @Html.ActionLink("Home", "Index", new { controller = "Posts" }, new { @class = "btn btn-default" })
                 @if (User.Identity.IsAuthenticated) 
                 {
-                    @Html.ActionLink("Edit", "Edit", "Posts", new { id = Model.ID }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Delete", "Delete", "Posts", new { id = Model.ID }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Edit", "Edit", "Posts", new { controller = "Posts", id = Model.ID }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Delete", "Delete", "Posts", new { controller = "Posts", id = Model.ID }, new { @class = "btn btn-danger" })
                 }
                 
             </div>
